@@ -14,9 +14,13 @@ let candidateAnswer;
 candidateAnswer = ('');
 
 //TODO: Variables for Part 2
-let questions;
-let correctAnswers;
-let candidateAnswers;
+let questions = ["Who was the first American woman in space? ", 
+"True or false: 5 kilometer == 5000 meters? ", 
+"(5 + 3)/2 * 10 = ? ", 
+"Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", 
+"What is the minimum crew size for the ISS? "];
+let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
+let candidateAnswers = [];
 
 
 function askForName() {
@@ -26,7 +30,10 @@ candidateName = input.question('Hello candidate! What is your name? ');
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-candidateAnswer = input.question(question);
+for (i = 0; i < 5; i++) {
+    candidateAnswers.push(input.question(questions[i]));
+}
+  // candidateAnswer = input.question(question);
   
 }
 
@@ -40,11 +47,14 @@ if (candidateAnswer === correctAnswer) {
 }
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+  let grade=0;  //TODO 3.2 use this variable to calculate the candidates score.
+for (i = 0; i < 5; i++) {
+    if (correctAnswers[i] === (candidateAnswers[i].toLowerCase().toUpperCase[0])) {
+        grade += 20;
+} 
 
   return grade;
-}
+}}
 
 function runProgram() {
   askForName();
